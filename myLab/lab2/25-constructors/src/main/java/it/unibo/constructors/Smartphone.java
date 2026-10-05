@@ -1,0 +1,110 @@
+package it.unibo.constructors;
+
+class Smartphone {
+
+    static final boolean DEF_HAS_GPS = true;
+    static final boolean DEF_HAS_3G = true;
+    static final boolean DEF_HAS_NFC = true;
+    static final int DEF_SD_SIZE = 8192;
+    static final int DEF_RAM_SIZE = 1024;
+    static final int DEF_N_CPU = 2;
+
+    int nCPU;
+    int ram;
+    int sdSize;
+    String brand;
+    String model;
+    boolean hasGPS;
+    boolean has3G;
+    boolean hasNFC;
+
+    Smartphone(String brand, String model){
+        this.brand = brand;
+        this.model = model;
+        this.nCPU = DEF_N_CPU;
+        this.ram = DEF_RAM_SIZE;
+        this.sdSize = DEF_SD_SIZE;
+        this.hasGPS = DEF_HAS_GPS;
+        this.has3G = DEF_HAS_3G;
+        this.hasNFC = DEF_HAS_NFC;
+    }
+
+    Smartphone(String brand, String model, boolean hasGPS, boolean has3g){
+        this.brand = brand;
+        this.model = model;
+        this.nCPU = DEF_N_CPU;
+        this.ram = DEF_RAM_SIZE;
+        this.sdSize = DEF_SD_SIZE;
+        this.hasGPS = DEF_HAS_GPS;
+        this.has3G = DEF_HAS_3G;
+        this.hasNFC = DEF_HAS_NFC;
+    }
+
+    Smartphone(String brand, String model, int sdSize){
+        this.brand = brand;
+        this.model = model;
+        this.nCPU = DEF_N_CPU;
+        this.ram = DEF_RAM_SIZE;
+        this.sdSize = sdSize;
+        this.hasGPS = DEF_HAS_GPS;
+        this.has3G = DEF_HAS_3G;
+        this.hasNFC = DEF_HAS_NFC;
+    }
+
+    Smartphone(String brand, String model, boolean hasNFC){
+        this.brand = brand;
+        this.model = model;
+        this.nCPU = DEF_N_CPU;
+        this.ram = DEF_RAM_SIZE;
+        this.sdSize = DEF_SD_SIZE;
+        this.hasGPS = DEF_HAS_GPS;
+        this.has3G = DEF_HAS_3G;
+        this.hasNFC = hasNFC;
+    }
+
+    Smartphone(String brand, String model, boolean hasGPS, boolean has3g, boolean hasNFC, int sdSize, int ram, int nCPU){
+        this.brand = brand;
+        this.model = model;
+        this.nCPU = nCPU;
+        this.ram = ram;
+        this.sdSize = sdSize;
+        this.hasGPS = hasGPS;
+        this.has3G = has3g;
+        this.hasNFC = hasNFC;
+    }
+
+    void printStringRep() {
+        IO.println("Smartphone info:");
+        IO.println("n CPU(s): " + this.nCPU);
+        IO.println("RAM amount: " + this.ram);
+        IO.println("SD size: " + this.sdSize);
+        IO.println("brand: " + this.brand);
+        IO.println("model: " + this.model);
+        IO.println("hasGPS: " + this.hasGPS);
+        IO.println("has3G: " + this.has3G);
+        IO.println("hasNFC: " + this.hasNFC + "\n");
+    }
+
+    public static void main() {
+        // 1) Creare lo smarthpone HTC One sdSize:1024
+
+        // 2) Creare lo smarthpone Samsung Galaxy Note 3 ram:2048 cpu:4
+        // sdSize:8192 gps:true nfc:true 3g:true
+
+        // 3) Creare lo smarthpone Apple iPhone 5S nfc:false
+
+        // 4) Creare lo smarthpone Google Nexus 4 gps:true 3g:true
+
+        // 5) Utilizzare il metodo printStringRep per stampare in standard
+        // output le informazioni di ciascun telefono
+        Smartphone htcOne = new Smartphone("HTC", "One");
+        Smartphone sgn3 = new Smartphone("Samsung", "Galaxy Note 3", true, true, true, 8192, 2048, 4);
+        Smartphone iPhone5S = new Smartphone("Apple", "iPhone 5S", false);
+        Smartphone googleNexus4 = new Smartphone("Google","Nexus", true, true);
+        // Printing using printStringRep
+        htcOne.printStringRep();
+        sgn3.printStringRep();
+        iPhone5S.printStringRep();
+        googleNexus4.printStringRep();
+    }
+}
