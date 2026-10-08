@@ -1,5 +1,7 @@
 package it.unibo.composition;
 
+import java.util.Arrays;
+
 public class Professor implements User {
 
     private int id;
@@ -22,18 +24,8 @@ public class Professor implements User {
         this.courses = courses;
     }
 
-    public String toString() {
-        return "Professor ["
-            + "name=" + this.name
-            + ", surname=" + this.surname
-            + ", id=" + this.id
-            + ", courses=" + for(String elem : courses) {
-                IO.println(elem + " ");
-            }
-            + "]";
-    }
     public String getUsername() {
-        return name;
+        return this.name + " " + this.surname;
     }
 
     public String getPassword() {
@@ -41,7 +33,22 @@ public class Professor implements User {
     }
 
     public String getDescription() {
-        
+        return "Professor ["
+            + "name=" + this.name
+            + ", surname=" + this.surname
+            + ", id=" + this.id
+            + ", courses=" + Arrays.toString(this.courses)
+            + "]";
+    }
+
+    public void replaceCourse(String course, int index) {
+        this.courses[index] = course;
+    }
+
+    public void replaceAllCourses(String [] courses) {
+        for (int i = 0; i<courses.length; i++) {
+            this.courses[i] = courses[i];
+        }
     }
 
 }
