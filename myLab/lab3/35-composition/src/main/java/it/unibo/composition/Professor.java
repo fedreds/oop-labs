@@ -46,7 +46,8 @@ public class Professor implements User {
     }
 
     public void replaceAllCourses(String [] courses) {
-        for (int i = 0; i<courses.length; i++) {
+        this.courses = new String[courses.length];
+        for (int i = 0; i < this.courses.length; i++) {
             this.courses[i] = courses[i];
         }
     }
