@@ -47,7 +47,6 @@ public class SimpleBankAccount implements BankAccount {
         this.deposit(id, amount - SimpleBankAccount.ATM_TRANSACTION_FEE);
     }
 
-    @Override
     public AccountHolder getAccountHolder() {
         return holder;
     }

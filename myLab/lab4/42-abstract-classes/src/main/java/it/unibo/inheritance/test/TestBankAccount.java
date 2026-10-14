@@ -3,7 +3,9 @@ package it.unibo.inheritance.test;
 import it.unibo.inheritance.api.AccountHolder;
 import it.unibo.inheritance.api.BankAccount;
 import it.unibo.inheritance.impl.ExtendedStrictBankAccount;
+import it.unibo.inheritance.impl.RestrictedBankAccount;
 import it.unibo.inheritance.impl.SimpleBankAccount;
+import it.unibo.inheritance.impl.ClassicBankAccount;
 
 public class TestBankAccount {
     private static final int INTIAL_AMOUNT = 10000;
@@ -15,7 +17,7 @@ public class TestBankAccount {
 
     private static void requireSame(final String what, final Object first, final Object second) {
         if (first.equals(second)) {
-            IO.println("# CORRECT: " + what + " " + first + " is equal to " + what + " " + second);
+            System.out.println("# CORRECT: " + what + " " + first + " is equal to " + what + " " + second);
         } else {
             final var error = "# ERROR: " + what + " " + first + " is not equal to " + what + " " + second + " #";
             final var decorationBuilder = new StringBuilder(error.length());
@@ -23,9 +25,9 @@ public class TestBankAccount {
                 decorationBuilder.append("#");
             }
             final var decoration = decorationBuilder.toString();
-            IO.println(decoration);
-            IO.println(error);
-            IO.println(decoration);
+            System.out.println(decoration);
+            System.out.println(error);
+            System.out.println(decoration);
             System.exit(1);
         }
     }
@@ -64,10 +66,10 @@ public class TestBankAccount {
         /*
          * Change the two accounts to verify that the behaviour of restricted and simple bank account are preserved
          */
-        final BankAccount restricted = null;
+        final BankAccount restricted = new RestrictedBankAccount(aRossi, 0);
         final BankAccount extendedStrict = new ExtendedStrictBankAccount(aBianchi, 0);
         final BankAccount simpleBankAccount = new SimpleBankAccount(aRossi, 0);
-        final BankAccount classicBankAccount = null;
+        final BankAccount classicBankAccount = new ClassicBankAccount(aRossi, 0);
         requireAccountsToWorkTheSameWay(restricted, extendedStrict);
         requireAccountsToWorkTheSameWay(simpleBankAccount, classicBankAccount);
     }
