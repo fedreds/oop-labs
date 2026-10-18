@@ -7,5 +7,4 @@ public interface RobotWithArms extends Robot {
     boolean dropDown();
 
     int getCarriedItemsCount();
-
 }

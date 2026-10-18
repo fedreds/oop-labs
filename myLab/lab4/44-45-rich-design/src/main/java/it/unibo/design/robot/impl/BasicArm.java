@@ -1,5 +1,7 @@
 package it.unibo.design.robot.impl;
 
+import java.util.Arrays;
+
 public class BasicArm {
 
     public static final double PICK_UP_DELTA_CONSUMPTION = 1.2;
@@ -12,7 +14,7 @@ public class BasicArm {
     }
 
     protected boolean isGrabbing() {
-        return this.freeHand == false ? true : false;
+        return !this.freeHand ? true : false;
     }
 
     public void pickUp() {
@@ -23,12 +25,11 @@ public class BasicArm {
         this.freeHand = true;
     }
 
-    public double getConsumptionForPickUp() {
+    protected  double getConsumptionForPickUp() {
         return PICK_UP_DELTA_CONSUMPTION;
     }
 
-    public double getConsumptionForDropDown() {
+    protected  double getConsumptionForDropDown() {
         return DROP_DOWN_DELTA_CONSUMPTION;
     }
-
 }
